@@ -14,21 +14,39 @@
     <link href="./styles/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-blue-600 mb-4">
-            Pomo Quad
-        </h1>
-        <p class="text-gray-700 text-lg">
-            Welcome to Pomo Quad! This text should be styled by Tailwind CSS.
-        </p>
-        <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Test Button
-        </button>
+<body class="">
 
-    </div>
+    <main>
 
-    <script scr="./scripts/script.js"></script>
+        <!-- PANELS -->
+        <section id="pomodoro-panel">
+            <!-- POMODORO -->
+            <div class="pomodoro-container">
+                <div class="timer-display"></div>
+                <div class="timer-controls"></div>
+                <div class="timer-modes"></div>
+            </div>
+            <!-- TASK LIST -->
+            <div class="task-list-container"></div>
+        </section>
+
+        <section id="matrix-panel">
+            <!-- MATRIX -->
+            <div class="matrix-container"></div>
+        </section>
+
+        <!-- DIALOGS -->
+        <dialog id="task-dialog"></dialog>
+
+        <dialog id="edit-task-dialog"></dialog>
+
+        <dialog id="custome-settings-dialog"></dialog>
+
+        <dialog id="settings-dialog"></dialog>
+    </main>
+
+
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
