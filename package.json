@@ -1,0 +1,33 @@
+{
+    "name": "pomo-quad",
+    "version": "1.0.0",
+    "description": "A task manager that incorporates a Pomodoro Timer and an Eisenhower Matrix",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "jest",
+        "dev": "npx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SebZG/pomo-quad.git"
+    },
+    "keywords": [
+        "pomodoro",
+        "timer",
+        "eisenhower",
+        "matrix"
+    ],
+    "author": "Sebastian Zapata Gutierrez",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SebZG/pomo-quad/issues"
+    },
+    "homepage": "https://github.com/SebZG/pomo-quad#readme",
+    "devDependencies": {
+        "daisyui": "^4.12.14",
+        "tailwindcss": "^3.4.15"
+    }
+}
