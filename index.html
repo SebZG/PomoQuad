@@ -22,29 +22,181 @@
         <section id="pomodoro-panel">
             <!-- POMODORO -->
             <div class="pomodoro-container">
-                <div class="timer-display"></div>
-                <div class="timer-controls"></div>
-                <div class="timer-modes"></div>
+                <div class="timer-display">
+                    <div id="timer">
+                        <span id="minutes">25</span>:<span id="seconds">00</span>
+                    </div>
+                    <div id="timer-phase">Focus Time</div>
+                    <div id="timer-rounds">Round 1/4</div>
+                </div>
+                <div class="timer-controls">
+                    <button id="start-timer" class="btn timer-btn">Start</button>
+                    <button id="pause-timer" class="btn timer-btn" disabled>Pause</button>
+                    <button id="reset-timer" class="btn timer-btn">Reset</button>
+                </div>
+                <div class="timer-modes">
+                    <button id="classic-timer" class="btn timer-mode active" data-focus="25"
+                        data-break="5">Classic</button>
+                    <button id="custom-timer" class="btn timer-mode">Custom</button>
+                    <button id="settings-toggle" class="btn timer-mode">Settings</button>
+                </div>
             </div>
             <!-- TASK LIST -->
-            <div class="task-list-container"></div>
+            <div class="task-list-container">
+                <h2>Task List</h2>
+                <button id="new-task-btn" class="btn primary-btn">New Task</button>
+                <div class="task-list"></div>
+            </div>
         </section>
 
         <section id="matrix-panel">
             <!-- MATRIX -->
-            <div class="matrix-container"></div>
+            <div class="matrix-container">
+                <div class="matrix">
+                    <div class="quadrant important-urgent">
+                        <h3>Do</h3>
+                        <div class="task-container"></div>
+                    </div>
+                    <div class="quadrant important-notUrgent">
+                        <h3>Schedule</h3>
+                        <div class="task-container"></div>
+                    </div>
+                    <div class="quadrant notImportant-urgent">
+                        <h3>Delegate</h3>
+                        <div class="task-container"></div>
+                    </div>
+                    <div class="quadrant notImportant-notUrgent">
+                        <h3>Automate</h3>
+                        <div class="task-container"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- DIALOGS -->
-        <dialog id="task-dialog"></dialog>
+        <dialog id="task-dialog">
 
-        <dialog id="edit-task-dialog"></dialog>
+            <form id="task-form">
+                <h3>Create New Task</h3>
+                <div class="form-group">
+                    <label for="task-title">Title</label>
+                    <input id="task-title" type="text" name="task-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Description</label>
+                    <textarea id="tasl-description" name="task-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-destinaton">Add to</label>
+                    <select id="task-destination" name="task-destination">
+                        <option value="list">Task List</option>
+                        <option value="do">Do (Important & Urgent)</option>
+                        <option value="schedule">Schedule (Important & Not Urgent)</option>
+                        <option value="delegate">Delegate (Not Important & Urgent)</option>
+                        <option value="automate">Automate (Not Important & Not Urgent)</option>
+                    </select>
+                </div>
+                <div class="dialog-buttons">
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                    <button type="submit" class="btn primary-btn">Add Task</button>
+                </div>
+            </form>
 
-        <dialog id="custome-settings-dialog"></dialog>
+        </dialog>
 
-        <dialog id="settings-dialog"></dialog>
+        <dialog id="edit-task-dialog">
+
+            <form id="edit-task-form">
+                <h3>Edit Task</h3>
+                <div class="form-group">
+                    <label for="edit-task-title">Title</label>
+                    <input type="text" id="edit-task-title" name="edit-task-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-task-description">Description</label>
+                    <textarea id="edit-task-description" name="edit-task-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-task-destination">Move to</label>
+                    <select id="edit-task-destination" name="edit-task-destination">
+                        <option value="list">Task List</option>
+                        <option value="do">Do (Important & Urgent)</option>
+                        <option value="schedule">Schedule (Important & Not Urgent)</option>
+                        <option value="delegate">Delegate (Not Important & Urgent)</option>
+                        <option value="automate">Automate (Not Important & Not Urgent)</option>
+                    </select>
+                </div>
+                <div class="dialog-buttons">
+                    <button type="button" class="btn delete-btn">Delete</button>
+                    <button type="button" class="btn cancel-btn">Cancel</button>
+                    <button type="submit" class="btn primary-btn">Save Changes</button>
+                </div>
+            </form>
+
+        </dialog>
+
+        <dialog id="custom-settings-dialog" class="settings-dialog">
+
+            <div class="dialog-content">
+                <h2>Custom Timer</h2>
+                <div class="settings-group">
+                    <div class="settings-item">
+                        <label for="focus-time">Focus Time (minutes):</label>
+                        <input type="number" id="focus-time" min="1" max="120" value="25">
+                    </div>
+                    <div class="settings-item">
+                        <label for="break-time">Break Time (minutes):</label>
+                        <input type="number" id="break-time" min="1" max="60" value="5">
+                    </div>
+                </div>
+                <div class="dialog-buttons">
+                    <button id="cancel-custom" class="btn">Cancel</button>
+                    <button id="apply-custom" class="btn primary-btn">Apply</button>
+                </div>
+            </div>
+
+        </dialog>
+
+        <dialog id="settings-dialog" class="settings-dialog">
+
+            <div class="dialog-content">
+                <h2>Timer Settings</h2>
+                <div class="settings-group">
+                    <div class="settings-item number-input">
+                        <label for="rounds">Number of Rounds</label>
+                        <div class="number-control">
+                            <button class="btn number-btn" id="decrease-rounds">-</button>
+                            <input type="number" id="rounds" min="1" max="10" value="4">
+                            <button class="btn number-btn" id="increase-rounds">+</button>
+                        </div>
+                    </div>
+                    <div class="settings-item checkbox-input">
+                        <label>
+                            <input type="checkbox" id="auto-start-breaks" checked>
+                            Auto-start breaks
+                        </label>
+                    </div>
+                    <div class="settings-item checkbox-input">
+                        <label>
+                            <input type="checkbox" id="auto-start-rounds" checked>
+                            Auto-start rounds
+                        </label>
+                    </div>
+                    <div class="settings-item checkbox-input">
+                        <label>
+                            <input type="checkbox" id="show-notifications" checked>
+                            Show notifications
+                        </label>
+                    </div>
+                </div>
+                <div class="dialog-buttons">
+                    <button id="cancel-settings" class="btn">Cancel</button>
+                    <button id="apply-settings" class="btn primary-btn">Apply Settings</button>
+                </div>
+            </div>
+
+        </dialog>
     </main>
-
 
     <script src="./scripts/script.js"></script>
 </body>
