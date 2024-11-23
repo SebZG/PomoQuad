@@ -1,3 +1,116 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    /* LAYOUT */
+    .main {
+        @apply grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 sm:gap-4 lg:gap-5 p-3 xs:p-4 md:p-6 max-w-[1400px] mx-auto min-h-screen;
+    }
+
+    /* Pomodoro Panel */
+    .pomodoro-panel {
+        @apply grid grid-cols-1 xs:grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4 lg:gap-5 w-full h-full md:auto-rows-fr;
+    }
+
+    .pomodoro-container {
+        @apply flex flex-col justify-center items-center gap-4 xs:gap-6 p-4 bg-white rounded-lg shadow-lg w-full h-full min-h-[300px] md:min-h-0;
+    }
+
+    .timer-buttons-container {
+        @apply flex flex-col items-center gap-4 xs:grid xs:grid-cols-2 xs:gap-4 sm:flex sm:flex-col sm:items-center sm:gap-3 p-4 xs:p-0;
+    }
+
+    .timer-controls {
+        @apply flex xs:flex-col gap-2 xs:gap-3 sm:flex-row sm:gap-4 md:gap-2;
+    }
+
+    .timer-modes {
+        @apply flex flex-wrap justify-center xs:flex-col xs:items-center sm:flex-row sm:justify-center gap-2 xs:gap-3 sm:gap-4 md:gap-2;
+    }
+
+    .task-list {
+        @apply flex-1 bg-slate-500/10 p-3 sm:p-4 overflow-y-auto;
+    }
+
+    .todo-list-container {
+        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 p-3 sm:p-4 bg-white rounded-lg shadow-lg w-full h-full min-h-[300px] md:min-h-0;
+    }
+
+    /* Matrix Panel */
+    .matrix-panel {
+        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 w-full h-full;
+    }
+
+    .matrix-container {
+        @apply h-full;
+    }
+
+    .matrix-grid {
+        @apply grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 auto-rows-fr h-full;
+    }
+
+    .quadrant {
+        @apply flex flex-col p-4 outline outline-2 rounded-lg shadow-lg glass h-full min-h-[300px] md:min-h-0;
+    }
+
+    .quadrant h3 {
+        @apply text-lg font-semibold mb-4;
+    }
+
+    .quadrant .task-container {
+        @apply bg-slate-500/10 flex-1 rounded-sm overflow-y-auto p-4;
+    }
+
+    .important-urgent {
+        @apply bg-green-100 outline-green-400;
+    }
+
+    .important-urgent h3 {
+        @apply text-green-500;
+    }
+
+    .important-notUrgent {
+        @apply bg-yellow-100 outline-yellow-400;
+    }
+
+    .important-notUrgent h3 {
+        @apply text-yellow-500;
+    }
+
+    .notImportant-urgent {
+        @apply bg-blue-100 outline-blue-400;
+    }
+
+    .notImportant-urgent h3 {
+        @apply text-blue-500;
+    }
+
+    .notImportant-notUrgent {
+        @apply bg-red-100 outline-red-400;
+    }
+
+    .notImportant-notUrgent h3 {
+        @apply text-red-500;
+    }
+
+    /* BUTTONS */
+    .btn {
+        @apply rounded-md transition-all;
+    }
+
+    .btn-timer-controls {
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+    }
+
+    .btn-timer-modes {
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+    }
+
+    .btn-new-task {
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+    }
+
+
+}

@@ -6,7 +6,11 @@ module.exports = {
         "./scripts/*.js"
     ],
     theme: {
-        extend: {},
+        extend: {
+            screens: {
+                "xs": "425px",
+            }
+        },
     },
     plugins: [
         require('daisyui'),
