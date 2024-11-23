@@ -95,6 +95,32 @@
         @apply text-red-500;
     }
 
+    /* TASKS */
+    .task {
+        @apply flex justify-evenly items-center bg-white/90 mb-2 rounded-md shadow-md p-2 gap-2 w-full max-w-full min-w-0 overflow-hidden;
+    }
+
+    .task-content {
+        @apply flex items-start flex-1 max-w-0 min-w-[calc(100%-70px)] overflow-hidden;
+    }
+
+    .task-title {
+        @apply text-xl font-medium text-slate-600 whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-full min-w-0 text-left;
+    }
+
+    .task-drag-handle {
+        @apply  cursor-grab;
+    }
+
+    .task-drag-handle,
+    .task-edit-btn {
+        @apply text-2xl font-bold text-slate-900 flex items-center flex-shrink-0;
+    }
+
+    .task-edit-btn:hover {
+        @apply text-slate-600 scale-125;
+    }
+
     /* BUTTONS */
     .btn {
         @apply rounded-md transition-all;
@@ -111,6 +137,7 @@
     .btn-new-task {
         @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
     }
+
 
 
 }
