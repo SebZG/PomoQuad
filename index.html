@@ -84,7 +84,9 @@
                         New Task
                     </button>
                 </div>
-                <div id="task-list" class="task-list"></div>
+                <div id="task-list" class="task-list">
+                    <div class="task-container"></div>
+                </div>
             </div>
         </section>
 
@@ -125,9 +127,9 @@
 
 
     <!-- DIALOGS -->
-    <dialog id="task-dialog">
+    <dialog id="new-task-dialog">
 
-        <form id="task-form">
+        <form id="new-task-form">
             <h3>Create New Task</h3>
             <div class="form-group">
                 <label for="task-title">Title</label>
@@ -135,16 +137,16 @@
             </div>
             <div class="form-group">
                 <label for="task-description">Description</label>
-                <textarea id="tasl-description" name="task-description" rows="3"></textarea>
+                <textarea id="task-description" name="task-description" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="task-destinaton">Add to</label>
                 <select id="task-destination" name="task-destination">
-                    <option value="list">Task List</option>
-                    <option value="do">Do (Important & Urgent)</option>
-                    <option value="schedule">Schedule (Important & Not Urgent)</option>
-                    <option value="delegate">Delegate (Not Important & Urgent)</option>
-                    <option value="automate">Automate (Not Important & Not Urgent)</option>
+                    <option value="task-list">Task List</option>
+                    <option value="important-urgent">Do (Important & Urgent)</option>
+                    <option value="important-notUrgent">Schedule (Important & Not Urgent)</option>
+                    <option value="notImportant-urgent">Delegate (Not Important & Urgent)</option>
+                    <option value="notImportant-notUrgent">Automate (Not Important & Not Urgent)</option>
                 </select>
             </div>
             <div class="dialog-buttons">
@@ -248,7 +250,7 @@
 
     </dialog>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/task-management.js"></script>
 </body>
 
 </html>
