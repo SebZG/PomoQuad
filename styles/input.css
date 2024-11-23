@@ -109,7 +109,7 @@
     }
 
     .task-drag-handle {
-        @apply  cursor-grab;
+        @apply cursor-grab;
     }
 
     .task-drag-handle,
@@ -118,7 +118,7 @@
     }
 
     .task-edit-btn:hover {
-        @apply text-slate-600 scale-125;
+        @apply text-slate-600 scale-125 transition-all duration-300 ease-in-out;
     }
 
     /* BUTTONS */
@@ -127,15 +127,57 @@
     }
 
     .btn-timer-controls {
-        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-sm;
     }
 
     .btn-timer-modes {
-        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-sm;
     }
 
     .btn-new-task {
-        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-md;
+        @apply btn-sm xs:btn-sm sm:btn-sm md:btn-sm lg:btn-sm;
+    }
+
+    .dialog-buttons {
+        @apply flex justify-center gap-4 items-center mt-4;
+    }
+
+    .dialog-buttons .btn {
+        @apply btn-md;
+    }
+
+    /* DIALOGS */
+
+    dialog {
+        @apply border-none p-5 rounded-lg shadow-lg max-w-[90vw] w-[500px] m-auto bg-white text-black;
+    }
+
+    dialog h3 {
+        @apply border-b-2 border-b-slate-300 mb-2;
+    }
+
+    dialog[open] {
+        @apply block;
+    }
+
+    dialog::backdrop {
+        @apply bg-black/50 backdrop-blur-sm;
+    }
+
+    .form-group label {
+        @apply block mb-2 font-medium text-black;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        @apply w-full p-2 mb-2 rounded-md bg-slate-200 transition-all;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        @apply outline-none outline outline-2 outline-blue-500 shadow-lg;
     }
 
 
