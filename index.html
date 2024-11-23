@@ -9,6 +9,8 @@
     <meta name="keywords" content="pomodoro, timer, eisenhower, matrix">
     <meta name="author" content="Sebastian Zapata Gutierrez">
 
+    <link rel="icon" href="./public/favicon.ico" type="image/x-icon">
+
     <title>PomoQuad</title>
 
     <link href="./styles/output.css" rel="stylesheet">
@@ -151,7 +153,7 @@
             </div>
             <div class="dialog-buttons">
                 <button type="submit" class="btn btn-success">Add Task</button>
-                <button type="button" class="btn btn-error">Cancel</button>
+                <button type="button" class="btn btn-warning">Cancel</button>
             </div>
         </form>
     </dialog>
@@ -170,17 +172,17 @@
             <div class="form-group">
                 <label for="edit-task-destination">Move to</label>
                 <select id="edit-task-destination" name="edit-task-destination">
-                    <option value="list">Task List</option>
-                    <option value="do">Do (Important & Urgent)</option>
-                    <option value="schedule">Schedule (Important & Not Urgent)</option>
-                    <option value="delegate">Delegate (Not Important & Urgent)</option>
-                    <option value="automate">Automate (Not Important & Not Urgent)</option>
+                    <option value="task-list">Task List</option>
+                    <option value="important-urgent">Do (Important & Urgent)</option>
+                    <option value="important-notUrgent">Schedule (Important & Not Urgent)</option>
+                    <option value="notImportant-urgent">Delegate (Not Important & Urgent)</option>
+                    <option value="notImportant-notUrgent">Automate (Not Important & Not Urgent)</option>
                 </select>
             </div>
             <div class="dialog-buttons">
-                <button type="button" class="btn delete-btn">Delete</button>
-                <button type="button" class="btn cancel-btn">Cancel</button>
-                <button type="submit" class="btn primary-btn">Save Changes</button>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn btn-error">Delete</button>
             </div>
         </form>
     </dialog>
@@ -199,8 +201,8 @@
                 </div>
             </div>
             <div class="dialog-buttons">
-                <button id="cancel-custom" class="btn">Cancel</button>
-                <button id="apply-custom" class="btn primary-btn">Apply</button>
+                <button id="apply-custom" class="btn btn-success">Apply</button>
+                <button id="cancel-custom" class="btn btn-warning">Cancel</button>
             </div>
         </div>
     </dialog>
@@ -237,8 +239,8 @@
                 </div>
             </div>
             <div class="dialog-buttons">
-                <button id="cancel-settings" class="btn">Cancel</button>
-                <button id="apply-settings" class="btn primary-btn">Apply Settings</button>
+                <button id="apply-settings" class="btn btn-success">Apply Settings</button>
+                <button id="cancel-settings" class="btn btn-warning">Cancel</button>
             </div>
         </div>
     </dialog>
