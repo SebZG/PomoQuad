@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newTaskBtn = document.getElementById("new-task-btn");
     const newTaskDialog = document.getElementById("new-task-dialog");
     const newTaskForm = document.getElementById("new-task-form");
+    const editTaskDialog = document.getElementById("edit-task-dialog");
 
     let editingTask = false;
 
@@ -81,5 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
             newTaskDialog.showModal();
         });
     }
+
+    // handle closing dialogs
+    document.querySelectorAll(".dialog-buttons .btn-error").forEach(btn => {
+        btn.addEventListener("click", () => {
+            console.log("Cancel button clicked");
+            const dialog = btn.closest("dialog");
+            dialog.close();
+            if (dialog === editTaskDialog) {
+                editingTask = false;
+            }
+        });
+    });
+
+
 
 });
