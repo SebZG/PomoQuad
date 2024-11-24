@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-
     /* LAYOUT */
     .main {
         @apply grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 sm:gap-4 lg:gap-5 p-3 xs:p-4 md:p-6 max-w-[1400px] mx-auto min-h-screen;
@@ -30,12 +29,33 @@
         @apply flex flex-wrap justify-center xs:flex-col xs:items-center sm:flex-row sm:justify-center gap-2 xs:gap-3 sm:gap-4 md:gap-2;
     }
 
-    .task-list {
-        @apply flex-1 bg-slate-500/10 p-3 sm:p-4 overflow-y-auto;
+    .todo-list-container {
+        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 p-3 sm:p-4 bg-white rounded-lg shadow-lg h-[400px]; /* Set fixed height */
+    }
+    
+    .todo-list-container .task-container {
+        @apply h-full min-h-0 overflow-y-auto rounded-sm p-4;
     }
 
-    .todo-list-container {
-        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 p-3 sm:p-4 bg-white rounded-lg shadow-lg w-full h-full min-h-[300px] md:min-h-0;
+    .task-list {
+        @apply flex flex-col bg-slate-500/10 p-3 lg:p-4 h-[300px]; /* Set a fixed height */
+    }
+
+    .task-container {
+        @apply h-full min-h-0 overflow-y-auto rounded-sm; /* Enable scrolling */
+    }
+
+    /* Optional: Scrollbar Styling */
+    .task-container::-webkit-scrollbar {
+        @apply w-[6px]; /* Adjust scrollbar width */
+    }
+
+    .task-container::-webkit-scrollbar-thumb {
+        @apply bg-slate-400 rounded-md; /* Style scrollbar thumb */
+    }
+
+    .task-container::-webkit-scrollbar-track {
+        @apply bg-transparent; /* Transparent track */
     }
 
     /* Matrix Panel */
@@ -44,25 +64,20 @@
     }
 
     .matrix-container {
-        @apply h-full;
+        @apply h-full flex flex-col; /* Ensure full height for the matrix container */
     }
 
     .matrix-grid {
-        @apply grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 auto-rows-fr h-full;
+        @apply grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 auto-rows-fr h-full; /* Ensure full height */
     }
 
     .quadrant {
-        @apply flex flex-col p-4 outline outline-2 rounded-lg shadow-lg glass h-full min-h-[300px] md:min-h-0;
+        @apply flex flex-col bg-slate-500/10 p-4 outline outline-2 rounded-lg shadow-lg h-[400px]; /* Set fixed height */
     }
-
+    
     .quadrant h3 {
-        @apply text-lg font-semibold mb-4;
+        @apply text-lg font-semibold mb-4 flex-shrink-0; /* Prevent header from shrinking */
     }
-
-    .quadrant .task-container {
-        @apply bg-slate-500/10 flex-1 rounded-sm overflow-y-auto p-4;
-    }
-
     .important-urgent {
         @apply bg-green-100 outline-green-400;
     }
@@ -97,7 +112,7 @@
 
     /* TASKS */
     .task {
-        @apply flex justify-evenly items-center bg-white/90 mb-2 rounded-md shadow-md p-2 gap-2 w-full max-w-full min-w-0 overflow-hidden;
+        @apply flex justify-evenly items-center bg-white/90 mb-2 rounded-md shadow-md p-1 gap-2 w-full max-w-full min-w-0 overflow-hidden;
     }
 
     .task-content {
@@ -122,7 +137,6 @@
     }
 
     /* SORTABLE */
-
     .sortable-ghost {
         @apply opacity-50;
     }
@@ -153,11 +167,11 @@
     }
 
     .dialog-buttons {
-        @apply flex justify-end gap-4 items-center mt-4;
+        @apply flex flex-wrap justify-end gap-2 xs:gap-3 items-center mt-4;
     }
 
     .dialog-buttons .btn {
-        @apply btn-md;
+        @apply btn-sm xs:btn-md;
     }
 
     /* DIALOGS */
