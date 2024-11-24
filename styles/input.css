@@ -11,10 +11,10 @@
     /* Pomodoro Panel */
     .pomodoro-panel {
         @apply grid grid-cols-1 xs:grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4 lg:gap-5 w-full h-full md:auto-rows-fr;
-    }
+    }    
 
     .pomodoro-container {
-        @apply flex flex-col justify-center items-center gap-4 xs:gap-6 p-4 bg-white rounded-lg shadow-lg w-full h-full min-h-[300px] md:min-h-0;
+        @apply flex flex-col justify-center items-center gap-4 xs:gap-6 p-4 bg-white rounded-lg shadow-lg w-full h-full;
     }
 
     .timer-buttons-container {
@@ -30,15 +30,15 @@
     }
 
     .todo-list-container {
-        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 p-3 sm:p-4 bg-white rounded-lg shadow-lg h-[400px]; /* Set fixed height */
+        @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 p-3 sm:p-4 bg-white rounded-lg shadow-lg flex-1 min-h-0;
     }
     
     .todo-list-container .task-container {
-        @apply h-full min-h-0 overflow-y-auto rounded-sm p-4;
+        @apply h-full min-h-0 overflow-y-auto rounded-sm p-4 flex-grow;
     }
 
     .task-list {
-        @apply flex flex-col bg-slate-500/10 p-3 lg:p-4 h-[300px]; /* Set a fixed height */
+        @apply flex flex-col bg-slate-500/10 p-3 lg:p-4 flex-1 min-h-0;
     }
 
     .task-container {
@@ -62,9 +62,9 @@
     .matrix-panel {
         @apply flex flex-col gap-3 sm:gap-4 lg:gap-5 w-full h-full;
     }
-
+    
     .matrix-container {
-        @apply h-full flex flex-col; /* Ensure full height for the matrix container */
+        @apply h-full flex flex-col;
     }
 
     .matrix-grid {
@@ -72,7 +72,7 @@
     }
 
     .quadrant {
-        @apply flex flex-col bg-slate-500/10 p-4 outline outline-2 rounded-lg shadow-lg h-[400px]; /* Set fixed height */
+        @apply flex flex-col bg-slate-500/10 p-4 outline outline-2 rounded-lg shadow-lg flex-grow min-h-0;
     }
     
     .quadrant h3 {
@@ -142,7 +142,7 @@
     }
 
     .sortable-chosen {
-        @apply bg-slate-50;
+        @apply bg-slate-100;
     }
 
     .sortable-drag {

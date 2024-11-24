@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ghostClass: 'sortable-ghost',
             chosenClass: 'sortable-chosen',
             dragClass: 'sortable-drag',
-            delay: 100,
+            delay: 0,
             delayOnTouchOnly: true,
             touchStartThreshold: 3,
             scroll: true,
