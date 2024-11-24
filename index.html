@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A task manager that incorporates a Pomodoro Timer and an Eisenhower Matrix">
+    <meta name="keywords" content="pomodoro, timer, eisenhower, matrix">
+    <meta name="author" content="Sebastian Zapata Gutierrez">
+
+    <link rel="icon" href="./public/favicon.ico" type="image/x-icon">
+
+    <title>PomoQuad</title>
+
+    <link href="./styles/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-slate-200">
+
+    <!-- <div class="absolute top-4 right-4 md:static md:mt-4">
+        <button id="settings-toggle"
+            class="btn bg-blue-500 text-white rounded-sm border-0 hover:bg-blue-600 text-sm px-3 py-2">
+            Settings
+        </button>
+    </div> -->
+
+
+    <main class="main">
+
+        <!-- PANELS -->
+        <!-- POMODORO PANEL -->
+        <section id="pomodoro-panel" class="pomodoro-panel">
+
+            <!-- POMODORO CONTAINER -->
+            <div id="pomodoro-container" class="pomodoro-container">
+                <!-- TIMER DISPLAY -->
+                <div id="timer-display" class="flex flex-col items-center gap-2">
+                    <div id="timer" class="text-5xl xs:text-6xl font-bold">
+                        <span id="minutes">25</span>:<span id="seconds">00</span>
+                    </div>
+                    <div id="timer-phase" class="text-lg xs:text-xl text-gray-600">
+                        Focus Time
+                    </div>
+                    <div id="timer-rounds" class="text-xs xs:text-sm text-gray-500">
+                        Round 1/4
+                    </div>
+                </div>
+                <!-- TIMER BUTTONS -->
+                <div id="timer-buttons-container" class="timer-buttons-container">
+                    <!-- TIMER CONTROLS -->
+                    <div id="timer-controls" class="timer-controls">
+                        <button id="start-timer" class="btn btn-success btn-timer-controls">
+                            Start
+                        </button>
+                        <button id="pause-timer" class="btn btn-warning btn-timer-controls" disabled>
+                            Pause
+                        </button>
+                        <button id="reset-timer" class="btn btn-error btn-timer-controls">
+                            Reset
+                        </button>
+                    </div>
+                    <!-- TIMER MODES -->
+                    <div id="timer-modes" class="timer-modes">
+                        <button id="classic-timer" class="btn btn-info btn-timer-modes active" data-focus="25"
+                            data-break="5">
+                            Classic
+                        </button>
+                        <button id="custom-timer" class="btn btn-info btn-timer-modes">
+                            Custom
+                        </button>
+                        <button id="settings-toggle" class="btn btn-info btn-timer-modes">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO LIST -->
+            <div id="todo-list-container" class="todo-list-container">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg sm:text-xl font-semibold">
+                        Todo List
+                    </h2>
+                    <button id="new-task-btn" class="btn btn-primary btn-new-task">
+                        New Task
+                    </button>
+                </div>
+                <div id="task-list" class="task-list">
+                    <div class="task-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATRIX PANEL -->
+        <section id="matrix-panel" class="matrix-panel">
+            <!-- MATRIX CONTAINER -->
+            <div class="matrix-container">
+                <div class="matrix-grid">
+                    <div class="quadrant important-urgent">
+                        <h3>
+                            Do
+                        </h3>
+                        <div id="task-list" class="task-list">
+                            <div class="task-container"></div>
+                        </div>
+                    </div>
+                    <div class="quadrant important-notUrgent">
+                        <h3>
+                            Schedule
+                        </h3>
+                        <div id="task-list" class="task-list">
+                            <div class="task-container"></div>
+                        </div>
+                    </div>
+                    <div class="quadrant notImportant-urgent">
+                        <h3>
+                            Delegate
+                        </h3>
+                        <div id="task-list" class="task-list">
+                            <div class="task-container"></div>
+                        </div>
+                    </div>
+                    <div class="quadrant notImportant-notUrgent">
+                        <h3>
+                            Automate
+                        </h3>
+                        <div id="task-list" class="task-list">
+                            <div class="task-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- DIALOGS -->
+    <dialog id="new-task-dialog">
+
+        <form id="new-task-form">
+            <h3>Create New Task</h3>
+            <div class="form-group">
+                <label for="task-title">Title</label>
+                <input id="task-title" type="text" name="task-title" required>
+            </div>
+            <div class="form-group">
+                <label for="task-description">Description</label>
+                <textarea id="task-description" name="task-description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="task-destinaton">Add to</label>
+                <select id="task-destination" name="task-destination">
+                    <option value="task-list">Task List</option>
+                    <option value="important-urgent">Do (Important & Urgent)</option>
+                    <option value="important-notUrgent">Schedule (Important & Not Urgent)</option>
+                    <option value="notImportant-urgent">Delegate (Not Important & Urgent)</option>
+                    <option value="notImportant-notUrgent">Automate (Not Important & Not Urgent)</option>
+                </select>
+            </div>
+            <div class="dialog-buttons">
+                <button type="submit" class="btn btn-success">Add Task</button>
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="edit-task-dialog">
+        <form id="edit-task-form">
+            <h3>Edit Task</h3>
+            <div class="form-group">
+                <label for="edit-task-title">Title</label>
+                <input type="text" id="edit-task-title" name="edit-task-title" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-task-description">Description</label>
+                <textarea id="edit-task-description" name="edit-task-description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="edit-task-destination">Move to</label>
+                <select id="edit-task-destination" name="edit-task-destination">
+                    <option value="task-list">Task List</option>
+                    <option value="important-urgent">Do (Important & Urgent)</option>
+                    <option value="important-notUrgent">Schedule (Important & Not Urgent)</option>
+                    <option value="notImportant-urgent">Delegate (Not Important & Urgent)</option>
+                    <option value="notImportant-notUrgent">Automate (Not Important & Not Urgent)</option>
+                </select>
+            </div>
+            <div class="dialog-buttons">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn btn-error">Delete</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="custom-settings-dialog" class="settings-dialog">
+        <div class="dialog-content">
+            <h2>Custom Timer</h2>
+            <div class="settings-group">
+                <div class="settings-item">
+                    <label for="focus-time">Focus Time (minutes):</label>
+                    <input type="number" id="focus-time" min="1" max="120" value="25">
+                </div>
+                <div class="settings-item">
+                    <label for="break-time">Break Time (minutes):</label>
+                    <input type="number" id="break-time" min="1" max="60" value="5">
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <button id="apply-custom" class="btn btn-success">Apply</button>
+                <button id="cancel-custom" class="btn btn-warning">Cancel</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="settings-dialog" class="settings-dialog">
+        <div class="dialog-content">
+            <h2>Timer Settings</h2>
+            <div class="settings-group">
+                <div class="settings-item number-input">
+                    <label for="rounds">Number of Rounds</label>
+                    <div class="number-control">
+                        <button class="btn number-btn" id="decrease-rounds">-</button>
+                        <input type="number" id="rounds" min="1" max="10" value="4">
+                        <button class="btn number-btn" id="increase-rounds">+</button>
+                    </div>
+                </div>
+                <div class="settings-item checkbox-input">
+                    <label>
+                        <input type="checkbox" id="auto-start-breaks" checked>
+                        Auto-start breaks
+                    </label>
+                </div>
+                <div class="settings-item checkbox-input">
+                    <label>
+                        <input type="checkbox" id="auto-start-rounds" checked>
+                        Auto-start rounds
+                    </label>
+                </div>
+                <div class="settings-item checkbox-input">
+                    <label>
+                        <input type="checkbox" id="show-notifications" checked>
+                        Show notifications
+                    </label>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <button id="apply-settings" class="btn btn-success">Apply Settings</button>
+                <button id="cancel-settings" class="btn btn-warning">Cancel</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="./scripts/task-management.js"></script>
+</body>
+
+</html>
