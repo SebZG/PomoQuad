@@ -3,8 +3,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const newTaskDialog = document.getElementById("new-task-dialog");
     const newTaskForm = document.getElementById("new-task-form");
     const editTaskDialog = document.getElementById("edit-task-dialog");
+    const taskLists = document.querySelectorAll(".task-container");
 
     let editingTask = null;
+
+    // Initialize Sortable for all `.task-list` containers
+    taskLists.forEach(list => {
+        new Sortable(list, {
+            group: "taskLists", // Enables dragging items between lists
+            handle: '.task-drag-handle',
+            ghostClass: 'sortable-ghost',
+            chosenClass: 'sortable-chosen',
+            dragClass: 'sortable-drag',
+            delay: 100,
+            delayOnTouchOnly: true,
+            touchStartThreshold: 3,
+            scroll: true,
+            scrollSensitivity: 10,
+            scrollSpeed: 5,
+            forceFallback: true,
+            fallbackClass: 'sortable-drag',
+            onEnd: function (e) {
+                let itemEl = e.item; // dragged HTMLElement
+                console.log("Moved item: ", itemEl);
+            }
+        });
+    })
 
     // Create a new task element
     function createNewTask(title, description, destination) {
