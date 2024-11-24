@@ -21,14 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
             scroll: true,
             scrollSensitivity: 10,
             scrollSpeed: 5,
-            forceFallback: true,
-            fallbackClass: 'sortable-drag',
             onEnd: function (e) {
                 let itemEl = e.item; // dragged HTMLElement
                 console.log("Moved item: ", itemEl);
             }
         });
-    })
+    });
 
     // Create a new task element
     function createNewTask(title, description, destination) {

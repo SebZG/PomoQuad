@@ -121,6 +121,20 @@
         @apply text-slate-600 scale-125 transition-all duration-300 ease-in-out;
     }
 
+    /* SORTABLE */
+
+    .sortable-ghost {
+        @apply opacity-50;
+    }
+
+    .sortable-chosen {
+        @apply bg-slate-50;
+    }
+
+    .sortable-drag {
+        @apply select-none;
+    }
+
     /* BUTTONS */
     .btn {
         @apply rounded-md transition-all;
